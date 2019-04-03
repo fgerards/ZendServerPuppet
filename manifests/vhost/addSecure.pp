@@ -1,4 +1,4 @@
-# == Define: zendserver::vhost::add
+# == Define: zendserver::vhost::addSecure
 # Define an existing application in Zend Server(that was not installed using Zend Server).
 # This definition is for internal use, do not include it directly in your manifest - it is called by zendserver::application. 
 # === Parameters
