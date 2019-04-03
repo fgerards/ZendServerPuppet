@@ -94,7 +94,7 @@ define zendserver::vhost (
     'present' : {
       case $secure {
         true: {
-            zendserver::vhost::addSecure { $name:
+            zendserver::vhost::addsecure { $name:
                 target                  => $target,
                 port                    => $port,
                 downcase_vhostname      => downcase($vhostname),
