@@ -92,16 +92,33 @@ define zendserver::vhost (
 
   case $ensure {
     'present' : {
-      zendserver::vhost::add { $name:
-        target                  => $target,
-        port                    => $port,
-        downcase_vhostname      => downcase($vhostname),
-        secure                  => $secure,
-        sslCertificatePath      => $sslCertificatePath,
-        sslCertificateKeyPath   => $sslCertificateKeyPath,
-        sslCertificateChainPath => $sslCertificateChainPath,
-        template                => $template,
-        force_create            => $force_create,
+      case $secure {
+        'true': {
+            zendserver::vhost::addSecure { $name:
+                target                  => $target,
+                port                    => $port,
+                downcase_vhostname      => downcase($vhostname),
+                secure                  => $secure,
+                sslCertificatePath      => $sslCertificatePath,
+                sslCertificateKeyPath   => $sslCertificateKeyPath,
+                sslCertificateChainPath => $sslCertificateChainPath,
+                template                => $template,
+                force_create            => $force_create,
+              }
+        }
+        'false': {
+            zendserver::vhost::add { $name:
+            target                  => $target,
+            port                    => $port,
+            downcase_vhostname      => downcase($vhostname),
+            secure                  => $secure,
+            sslCertificatePath      => $sslCertificatePath,
+            sslCertificateKeyPath   => $sslCertificateKeyPath,
+            sslCertificateChainPath => $sslCertificateChainPath,
+            template                => $template,
+            force_create            => $force_create,
+          }
+        }
       }
     }
     'absent' : {
