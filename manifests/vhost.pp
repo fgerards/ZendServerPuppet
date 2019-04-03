@@ -93,7 +93,7 @@ define zendserver::vhost (
   case $ensure {
     'present' : {
       case $secure {
-        'true': {
+        true: {
             zendserver::vhost::addSecure { $name:
                 target                  => $target,
                 port                    => $port,
@@ -106,7 +106,7 @@ define zendserver::vhost (
                 force_create            => $force_create,
               }
         }
-        'false': {
+        false: {
             zendserver::vhost::add { $name:
             target                  => $target,
             port                    => $port,
