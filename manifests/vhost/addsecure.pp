@@ -21,7 +21,7 @@
 # [*force_create*]
 # Force the creation of a virtual host, even if it fails syntax validation. Default: FALSE
 
-define zendserver::vhost::addSecure (
+define zendserver::vhost::addsecure (
   $target,
   $downcase_vhostname,
   $port                    = $port,
