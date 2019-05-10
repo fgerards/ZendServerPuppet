@@ -23,4 +23,4 @@ if os.path.isfile("/usr/local/zend/bin/zs-client.sh"):
     name = extension["name"]
     for key, value in extension.iteritems():
       if not isinstance(value, list):
-        print ('zend_extension_' + key + '_' + name + '=' + value)
+        print ('zend_extension_' + key + '_' + name + '=' + str(value))
