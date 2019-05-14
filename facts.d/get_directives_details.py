@@ -26,4 +26,4 @@ if os.path.isfile("/usr/local/zend/bin/zs-client.sh"):
     name = directive["name"]
     for key, value in directive.iteritems():
       if value and not isinstance(value, list) and not isinstance(value,dict):
-        print ('zend_directive_' + key + '_' + name + '=' + value)
+        print ('zend_directive_' + key + '_' + name + '=' + str(value))
