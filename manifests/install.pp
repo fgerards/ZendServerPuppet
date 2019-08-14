@@ -5,7 +5,7 @@
 class zendserver::install {
   case $::zendserver::webserver {
     'nginx' : { $zendserverpkgname = "zend-server-${zendserver::webserver}-php-${zendserver::phpversion}" }
-    default : { $zendserverpkgname = "zend-server-php-${zendserver::phpversion}" }
+    default : { $zendserverpkgname = "zend-server-${zendserver::webserver}" }
   }
 
   case $::osfamily {
